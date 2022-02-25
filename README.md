@@ -33,7 +33,7 @@ faculty_count - number of faculty or academic staff at the university
 
 
 
-What metrics are you planning to analyze.
+What metrics I am planning to analyze.
 
 1. Identify top 5 universities (private and public) by region from 2017 to 2022
 2. Which counties and cities are preffered by international students
