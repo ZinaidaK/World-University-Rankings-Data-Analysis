@@ -1,0 +1,24 @@
+Business value: World University Ranking
+Grain: Ranks of the universities by regions for 2017-2022 time period
+
+
+Dimensions: 
+1)University (University_name, Type, Logo, University_link
+2)Location (Region, Country, City)
+3)Recearch (Recearch_output)
+
+Facts:
+University
+FK University
+FK Locaton
+FK Research
+Faculty_count
+Intern_Stud_Numb
+Stud_Faculty_Ratio
+Univ_score
+Rank_display
+Year
+Size
+
+
+
