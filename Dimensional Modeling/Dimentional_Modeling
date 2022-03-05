@@ -1,5 +1,5 @@
 Business value: World University Ranking
-Grain: Ranks of the universities by regions for 2017-2022 time period
+Grain: Ranks of Universities by city and years
 
 
 Dimensions: 
@@ -8,7 +8,7 @@ Dimensions:
 3)Recearch (Recearch_output)
 
 Facts:
-University
+PK University
 FK University
 FK Locaton
 FK Research
