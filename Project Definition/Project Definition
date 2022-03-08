@@ -1,8 +1,24 @@
+QS World Universiry Rankings 2017-2022
+
 Context
 QS World University Rankings is an annual publication of global university rankings by Quacquarelli Symonds. 
 The QS ranking receives approval from the International Ranking Expert Group (IREG), and is viewed as one of the three most-widely read university rankings in the world. 
 QS publishes its university rankings in partnership with Elsevier.
 
-Project Deinition
+There are thousands of universities around the world, and as higher education becomes more accessible, it’s vital to maintain a benchmarked comparison of them over time.  
+We know that for many high school seniors, the choice of where to go to university is not a simple one and this may be especially true for international students. 
+There are thousands of universities to choose from abroad, but how to determine which one is right for you? 
+
+
+Project's goal
+
+I am going to analyse data from QS World University Rankings 2017-2022 dataset to help international students make a better decision on choosing the university for their future study and career.
+Because there are a lot of universities both public and private and both are placed in cities and have different ranks, my goal in this project is to help them to find an university that fits them best.
+
+Project’s Objective
+
+The objective of this project is to provide a visualized detailed dashboard for high school students based on ranks, countries, scores to profound understanding and making a better decision.
+
+
 
 
