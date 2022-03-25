@@ -1,0 +1,93 @@
+use bi_marathon_zinaida;
+
+-- 1.perform LEFT, RIGHT, UNION joins
+
+-- find the universities in North America that have very high research outputs
+
+SELECT DISTINCT (university_name), research_output
+FROM dim_research AS dr
+LEFT JOIN fact_table AS ft
+ON dr.PK_research = ft.FK_Research
+LEFT JOIN dim_university AS du
+ON du.PK_University = ft.FK_University
+LEFT JOIN dim_location AS dl
+ON dl.PK_Location = ft.FK_Location
+WHERE research_output = 'Very High' AND region = 'North America'
+ORDER BY university_name;
+
+-- Find the university name and number of international students in Europe
+SELECT DISTINCT du.university_name, ft.international_students, dl.region
+FROM dim_university AS du
+RIGHT JOIN fact_table AS ft
+ON ft.FK_University = du.PK_University
+JOIN dim_location AS dl
+ON ft.FK_Location = dl.PK_Location
+WHERE region = 'Europe';
+
+-- find ALL IDs from fact table and dim_university
+SELECT PK_Fact_University
+FROM fact_table
+UNION
+SELECT PK_University
+FROM dim_university;
+
+-- 2. Find all universities and any score associated with those universities
+SELECT university_name, score
+FROM fact_table AS ft
+INNER JOIN dim_university AS du
+ON ft.FK_University = du.PK_University
+GROUP BY university_name
+ORDER BY university_name ASC;
+
+
+-- 3. Find all years and any associated universities names
+
+SELECT year, university_name
+FROM dim_university AS du
+LEFT JOIN fact_table AS ft
+ON du.PK_University = ft.PK_Fact_University
+ORDER BY year ASC;
+
+-- 4. Present all unique university IDs from university and fact tables
+SELECT DISTINCT ( PK_University)
+FROM dim_university AS du
+LEFT JOIN fact_table AS ft
+ON du.PK_University = ft.FK_University;
+
+-- 5. Calculate how many universities had student faculty ratio more than 4
+SELECT COUNT(university_name)
+FROM dim_university AS du
+LEFT JOIN fact_table AS ft ON du.PK_University = ft.PK_Fact_University
+WHERE student_faculty_ratio > 4;
+
+-- 6. How many Faculty count in 'Cambridge' city for year 2020
+SELECT COUNT(faculty_count)
+FROM fact_table AS ft
+INNER JOIN dim_location AS dl
+ON ft.FK_Location = dl.PK_Location
+WHERE year = 2020
+GROUP BY city
+HAVING city = 'Cambridge';
+
+-- 7. Present average score for 'Stanford University' for each region
+SELECT AVG(score) as avg_score, university_name
+FROM fact_table AS ft
+INNER JOIN dim_location AS dl
+ON ft.FK_Location = dl.PK_Location
+INNER JOIN dim_university AS du
+ON ft.FK_University = du.PK_University
+WHERE university_name = 'Stanford University'
+GROUP BY region;
+
+-- 8. What is the percentage of international students in 'Princeton University'
+
+SELECT
+university_name, 
+ROUND((ft.international_students/
+(ft.faculty_count * ft.student_faculty_ratio)* 100),2 )AS "percent of int students"
+FROM fact_table AS ft
+INNER JOIN dim_university AS du
+ON ft.FK_University = du.PK_University
+WHERE university_name = 'Princeton University'
+GROUP BY university_name;
+
