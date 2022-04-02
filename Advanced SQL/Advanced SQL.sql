@@ -1,0 +1,63 @@
+use bi_marathon_zinaida
+-- #1 adding 3 duplicates
+
+insert into dim_location
+VALUE (3000, 'Europe', 'Poland', 'Warsaw'),
+(3001, 'Europe', 'Poland', 'Warsaw'),
+(3002, 'Europe', 'Poland', 'Warsaw');
+
+-- methode 1
+select
+region, country, city,
+count(*)
+from dim_location
+group by region, country, city
+having count(*) > 1;
+
+-- method 2
+WITH CTE(
+region, country, city, duplicatecount)
+AS(
+SELECT region, country, city,
+ROW_NUMBER() OVER (partition by region, country, city
+ORDER BY PK_Location) AS duplicatecount
+FROM dim_location)
+SELECT * FROM CTE;
+
+-- using COALESCE function
+INSERT INTO dim_location
+VALUE (1500, 'Europe', NULL, 'Paris');
+
+SELECT 
+region, city,
+COALESCE(country, 'N/A') AS country
+FROM dim_location 
+
+-- find average score by university name in North America region. Show case all universities in 
+-- North America together with their score and average score
+
+WITH average_score AS
+(
+SELECT du.university_name, avg(score) AS average_score
+FROM fact_table AS ft
+INNER JOIN dim_university AS du
+ON ft.FK_University = du.PK_University
+GROUP BY university_name
+)
+SELECT
+du.university_name, ft.score, dl.region, av.average_score
+FROM dim_university AS du
+INNER JOIN fact_table AS ft
+on du.PK_University = ft.FK_University
+INNER JOIN dim_location AS dl
+ON ft.FK_Location = dl.PK_Location
+INNER JOIN average_score as av
+ON av.university_name = ft.FK_University
+where region = 'North America'
+
+
+
+
+
+
+
