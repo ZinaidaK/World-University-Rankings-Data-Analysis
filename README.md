@@ -4,7 +4,10 @@ QS World University Rankings 2017 - 2022
 
 Project mission and goal
 
-I am going to analyse data from QS World University Rankings 2017-2022 dataset to help high school students all around the world to analyse and make a better decision on choosing the university for their future study and career.
+There are thousands of universities around the world, and as higher education becomes more accessible, it’s vital to maintain a benchmarked comparison of them over time.  
+We know that for many students, the choice of where to go to university is not a simple one and this may be especially true for international students. 
+
+I am going to analyse data from QS World University Rankings 2017-2022 dataset to assist intenational students all around the world to analyse my findings and dashboard, and make a right decision on choosing the university for their future study and career.
 Because there are a lot of universities both public and private and both are placed in cities and have different ranks, my goal in this project is to help them to find an university that fits them best.
 
 Project’s Objective
@@ -35,8 +38,8 @@ faculty_count - number of faculty or academic staff at the university
 
 What metrics I am planning to analyze.
 
-1. Identify top 5 universities (private and public) by region from 2017 to 2022
-2. Which counties and cities are preffered by international students
-3. What is the percentage of international students of the top of ranking universities
-4. Idetntify ratio of private and public universities by region
-5. Identify if the location of a university play a role in its ranking
+1. Identify the average number of international students in both public and private schools
+2. Find out the countries and cities preffered by international students
+3. What is the percentage of international students in different regions
+4. Discover the region with the highest private university score 
+5. Detect patterns beetween average number of students and faculty count throughout the 6 year period
