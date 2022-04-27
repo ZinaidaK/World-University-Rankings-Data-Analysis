@@ -47,7 +47,9 @@ size - size of the university in terms of area
 faculty count - number of faculty or academic staff at the university
 
 
+
 Metrics I am planning to analyze.
+
 
 1. Identify the average number of international students in both public and private schools
 2. Find out the countries and cities preferred by international students
